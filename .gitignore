@@ -21,3 +21,4 @@ bin-release/
 .idea
 index.php
 http-request-store.txt
+ExampleController.php

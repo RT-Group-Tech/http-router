@@ -4,5 +4,5 @@ namespace Rtgroup\HttpRouter;
 
 abstract class HttpEvent
 {
-    public abstract function capture($url);
+    public abstract function captured($url);
 }
