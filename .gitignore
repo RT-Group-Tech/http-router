@@ -19,3 +19,5 @@ bin-release/
 
 /vendor/
 .idea
+index.php
+http-request-store.txt
