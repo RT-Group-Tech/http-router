@@ -1,0 +1,17 @@
+{
+    "name": "rtgroup/http-router",
+    "description": "Composant de gestion de requete http",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Rtgroup\\HttpRouter\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Chris Tenday",
+            "email": "ctenday@gmail.com"
+        }
+    ],
+    "require": {}
+}
