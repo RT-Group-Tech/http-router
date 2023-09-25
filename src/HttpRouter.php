@@ -17,15 +17,15 @@ class HttpRouter
     /**
      * Method pour listen les https requetes
      * @param $url => url à capturer.
-     * @param HttpEvent $handler => Le controller à éxécuter
+     * @param Controller $handler => Le controller à éxécuter
      * @return $this
      */
-    public function listening(array $url,HttpEvent $handler)
+    public function listening(array $url, Controller $handler)
     {
         if(in_array($this->request->getUrl(),$url))
         {
             $this->urlFound=true;
-            $handler->capture($this->request->getUrl());
+            $handler->captured($this->request->getUrl());
         }
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 
-class ExampleController extends \Rtgroup\HttpRouter\HttpEvent
+class ExampleController extends \Rtgroup\HttpRouter\Controller
 {
 
     public function captured($url)

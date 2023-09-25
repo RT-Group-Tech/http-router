@@ -2,7 +2,7 @@
 
 namespace Rtgroup\HttpRouter;
 
-abstract class HttpEvent
+abstract class Controller
 {
     public abstract function captured($url);
 }
