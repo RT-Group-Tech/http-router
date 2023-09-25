@@ -22,3 +22,5 @@ bin-release/
 index.php
 http-request-store.txt
 ExampleController.php
+.htaccess
+

@@ -60,6 +60,31 @@ class HttpRequest
     {
         $this->url=$_SERVER['REQUEST_URI'];
 
+        if($this->host=="127.0.0.1" || $this->host=="localhost")
+        {
+            /**
+             * Remove host from url.
+             */
+            $u=explode("/",$this->url);
+
+            $cleanedUrl="";
+            for($i=0; $i<count($u); $i++)
+            {
+                if($i<2)
+                {
+                    continue;
+                }
+                $cleanedUrl.=$u[$i];
+
+                if($i!=count($u)-1)
+                {
+                    $cleanedUrl.="/";
+                }
+            }
+
+            $this->url=$cleanedUrl;
+        }
+
         self::$mainDir=dirname($_SERVER['SCRIPT_FILENAME']);
     }
 
