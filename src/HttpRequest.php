@@ -32,6 +32,8 @@ class HttpRequest
         /**
          * Http data cleaning.
          */
+        $_POST=HttpCleaner::clean($_POST);
+        $_GET=HttpCleaner::clean($_GET);
         $this->requestData=array_merge($_GET,$_POST);
         $this->requestData= HttpCleaner::clean($this->requestData);
     }
