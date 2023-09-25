@@ -98,7 +98,7 @@ class HttpRequest
      * @param $key
      * @return void
      */
-    public static function checkRequiredData($key,$checkCount=false)
+    public static function checkRequiredData($key,$checkLength=false,$minLength=1)
     {
         $request=HttpRequest::getCachedObject();
 
@@ -111,9 +111,12 @@ class HttpRequest
             /**
              * Check count.
              */
-            if(strlen($request->requestData[$key])>0)
+            if($checkLength)
+            {
+                if(strlen($request->requestData[$key])<$minLength)
             {
                 throw new \Exception($key." : obligatoire");
+            }
             }
         }
     }
@@ -150,7 +153,7 @@ class HttpRequest
         /**
          * Get cached HttpRequest obj.
          */
-        self::$requestObj=unserialize($content['req_obj']);
+        self::$requestObj=unserialize($content->req_obj);
 
         return self::$requestObj;
     }
