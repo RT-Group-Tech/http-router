@@ -9,12 +9,9 @@ class HttpRouter
     {
 
         $req=new HttpRequest();
-        try
-        {
-            HttpRequest::checkRequiredData("fullname");
-        }catch (Exception $e)
-        {
-            echo $e->getMessage();
-        }
+
+        $url=$req->getUrl();
+
+        echo $url;
     }
 }

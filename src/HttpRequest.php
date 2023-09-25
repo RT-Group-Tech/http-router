@@ -157,4 +157,13 @@ class HttpRequest
 
         return self::$requestObj;
     }
+
+    /**
+     * Recuperer les données GET & POST de la requete.
+     * @return array|mixed|string
+     */
+    public function getData()
+    {
+        return $this->requestData;
+    }
 }
