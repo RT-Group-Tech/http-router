@@ -5,13 +5,13 @@ use Exception;
 
 class HttpRouter
 {
-    private HttpRequest $request;
+    private HttpRequest $httpRequest;
     private $urlFound=false;
 
     public function __construct()
     {
 
-        $this->request=new HttpRequest();
+        $this->httpRequest=new HttpRequest();
     }
 
     /**
@@ -22,10 +22,10 @@ class HttpRouter
      */
     public function listening(array $url, Controller $handler)
     {
-        if(in_array($this->request->getUrl(),$url))
+        if(in_array($this->httpRequest->getUrl(),$url))
         {
             $this->urlFound=true;
-            $handler->captured($this->request->getUrl());
+            $handler->captured($this->httpRequest->getUrl(),$this->httpRequest);
         }
         return $this;
     }
