@@ -1,6 +1,6 @@
 {
     "name": "rtgroup/http-router",
-    "description": "Composant de gestion de requete http",
+    "description": "Composant de gestion & routage de requete http",
     "type": "library",
     "autoload": {
         "psr-4": {
