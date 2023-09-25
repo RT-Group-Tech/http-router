@@ -118,6 +118,29 @@ class HttpRequest
         return $this->url;
     }
 
+    public function isPost()
+    {
+        $obj=self::getCachedObject();
+        if($obj->method=="POST")
+        {
+            return true;
+        }
+
+        return false;
+
+    }
+
+    public function isGet()
+    {
+        $obj=self::getCachedObject();
+        if($obj->method=="GET")
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     /**
      * Method pour vérifier d'une donnée obligatoire parmis les données http de la requete.
      * @param $key
