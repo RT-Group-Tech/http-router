@@ -122,8 +122,8 @@ class HttpRequest
 
     public function isPost()
     {
-        $obj=self::getCachedObject();
-        if($obj->method=="POST")
+        //$obj=self::getCachedObject();
+        if($this->method=="POST")
         {
             return true;
         }
@@ -134,8 +134,8 @@ class HttpRequest
 
     public function isGet()
     {
-        $obj=self::getCachedObject();
-        if($obj->method=="GET")
+        //$obj=self::getCachedObject();
+        if($this->method=="GET")
         {
             return true;
         }
