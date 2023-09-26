@@ -184,7 +184,11 @@ class HttpRequest
         $data['req_obj']=serialize($this);
         $jsonData=json_encode($data);
 
-        file_put_contents(self::$mainDir.DIRECTORY_SEPARATOR.self::$storeFilename,$jsonData);
+        $dataFile=self::$mainDir.DIRECTORY_SEPARATOR.self::$storeFilename;
+        //file_put_contents($dataFile,$jsonData);
+        $f=fopen($dataFile,'w');
+        fwrite($f,$jsonData);
+        fclose($f);
     }
 
     /**
