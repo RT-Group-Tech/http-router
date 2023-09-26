@@ -34,6 +34,7 @@ abstract class Controller
          * Output http response.
          */
         echo $jsonResponse;
+        exit(); /** stop the application */
     }
 
     /**
