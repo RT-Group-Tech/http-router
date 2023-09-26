@@ -197,7 +197,12 @@ class HttpRequest
      */
     private static function getCachedObject()
     {
-        $content=file_get_contents(self::$mainDir.DIRECTORY_SEPARATOR.self::$storeFilename);
+        $dataFile=self::$mainDir.DIRECTORY_SEPARATOR.self::$storeFilename;
+        if(!file_exists($dataFile))
+        {
+            return null;
+        }
+        $content=file_get_contents($dataFile);
 
         /**
          * Decode json content.
