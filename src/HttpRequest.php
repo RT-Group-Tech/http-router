@@ -36,6 +36,11 @@ class HttpRequest
         $_GET=HttpCleaner::clean($_GET);
         $this->requestData=array_merge($_GET,$_POST);
         $this->requestData= HttpCleaner::clean($this->requestData);
+
+        /**
+         * Cache HttpRequest object in file.
+         */
+        $this->cacheObject();
     }
 
     private function setHost()
@@ -176,7 +181,7 @@ class HttpRequest
         /**
          * Cache HttpRequest object in file.
          */
-        $this->cacheObject();
+        //$this->cacheObject();
     }
 
     private function cacheObject()
