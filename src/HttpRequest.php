@@ -200,7 +200,7 @@ class HttpRequest
      * Recuperer l'objet en cache.
      * @return mixed
      */
-    private static function getCachedObject()
+    public static function getCachedObject()
     {
         $dataFile=self::$mainDir.DIRECTORY_SEPARATOR.self::$storeFilename;
         if(!file_exists($dataFile))
