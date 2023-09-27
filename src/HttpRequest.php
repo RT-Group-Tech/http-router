@@ -231,19 +231,21 @@ class HttpRequest
         return $this->requestData;
     }
 
+    /**
+     * Method pour éxécuter une requete POST http.
+     * @param $url => url de la requete.
+     * @param $data => POST data.
+     * @return false|string|null
+     */
     public function executeRequest($url,$data)
     {
 
         $curl=new \Curl\Curl();
         $curl->setHeader("Content-Type","application/json");
-        $certificate_location = "C:\\xampp\apache\cacert.pem"; // modify this line accordingly (may need to be absolute)
-        //$curl->setopt(CURLOPT_CAINFO, $certificate_location);
-        //$curl->setopt(CURLOPT_CAPATH, $certificate_location);
+
         $curl->setOpt(CURLOPT_SSL_VERIFYPEER, 0);
         $curl->setOpt(CURLOPT_SSL_VERIFYHOST, 0);
-        //$curl->setOpt(CURLOPT_SSL_ENABLE_ALPN,false);
-        //$curl->setOpt(CURLOPT_SSL_ENABLE_NPN,false);
-        //$curl->setOpt(CURLOPT_SSL_VERIFYSTATUS,false);
+
         $curl->setOpt(CURLOPT_FOLLOWLOCATION,true);
         $curl->setOpt(CURLOPT_RETURNTRANSFER,true);
 
@@ -251,22 +253,14 @@ class HttpRequest
 
         if($curl->error)
         {
-            //echo "\n2.Er:".$curl->errorMessage;
             return null;
         }
         else
         {
             $obj=$curl->response;
 
-            //var_dump($curl->response);
             return $obj;
         }
 
-
-        //echo "rr:".$curl->response; exit();
-
-        //return $res;
-        //print_r($res); exit();
-        //echo "\n2.Res:".$res."#".$curl->getResponse(); exit();
     }
 }
