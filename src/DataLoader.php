@@ -13,7 +13,7 @@ trait DataLoader
      * @param $data
      * @return void
      */
-    public function loadData($key, $data)
+    protected function loadData($key, $data)
     {
         $dataResponse[$key]=$data;
 
@@ -40,7 +40,7 @@ trait DataLoader
      * @param $value
      * @return void
      */
-    public function setResponseHeader($key,$value)
+    protected function setResponseHeader($key,$value)
     {
         $this->headers[$key]=$value;
     }
