@@ -234,7 +234,6 @@ class HttpRequest
     public function executeRequest($url,$data)
     {
 
-        require_once (SYSTEM.DS."curl".DS."vendor".DS."autoload.php");
         $curl=new \Curl\Curl();
         $curl->setHeader("Content-Type","application/json");
         $certificate_location = "C:\\xampp\apache\cacert.pem"; // modify this line accordingly (may need to be absolute)

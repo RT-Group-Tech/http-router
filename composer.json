@@ -13,5 +13,7 @@
             "email": "ctenday@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "curl/curl": "^2.5"
+    }
 }
