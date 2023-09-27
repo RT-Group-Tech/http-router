@@ -20,12 +20,12 @@ class HttpRouter
      * @param Controller $handler => Le controller à éxécuter
      * @return $this
      */
-    public function listening(array $url, Controller $handler)
+    public function listening(array $url, Controller $controller)
     {
         if(in_array($this->httpRequest->getUrl(),$url))
         {
             $this->urlFound=true;
-            $handler->captured($this->httpRequest->getUrl(),$this->httpRequest);
+            $controller->captured($this->httpRequest->getUrl(),$this->httpRequest);
         }
         return $this;
     }
