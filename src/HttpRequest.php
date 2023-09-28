@@ -11,7 +11,7 @@ class HttpRequest
     private $method;
     private $url;
 
-    private array $params;
+    private array $params=[];
 
     private $requestData;
 
@@ -25,11 +25,12 @@ class HttpRequest
         /**
          * Parse request.
          */
+        $this->setUrl();
         $this->setHost();
         $this->setAgent();
         $this->setMethod();
         $this->setprotocol();
-        $this->setUrl();
+
 
         /**
          * Http data cleaning.
