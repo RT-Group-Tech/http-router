@@ -3,8 +3,9 @@
 class ExampleController extends \Rtgroup\HttpRouter\Controller
 {
 
-    public function captured($url)
+
+    public function captured($url, \Rtgroup\HttpRouter\HttpRequest $httpRequest, array $params = null)
     {
-        echo "\nContent called:".$url;
+        // TODO: Implement captured() method.
     }
 }

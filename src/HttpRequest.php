@@ -25,12 +25,11 @@ class HttpRequest
         /**
          * Parse request.
          */
-        $this->setUrl();
         $this->setHost();
         $this->setAgent();
         $this->setMethod();
         $this->setprotocol();
-
+        $this->setUrl();
 
         /**
          * Http data cleaning.
