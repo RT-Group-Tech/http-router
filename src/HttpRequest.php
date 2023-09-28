@@ -11,6 +11,8 @@ class HttpRequest
     private $method;
     private $url;
 
+    private array $params;
+
     private $requestData;
 
     private static $mainDir;
@@ -91,8 +93,35 @@ class HttpRequest
 
             $this->url=$cleanedUrl;
         }
+        $urlParts=explode("/",$this->url);
+
+        /**
+         * Set params from url.
+         */
+        if(count($urlParts)>2)
+        {
+            /**
+             * Separate params & Rebuild url.
+             */
+            $this->url=$urlParts[0]."/".$urlParts[1];
+
+            /**
+             * Params.
+             */
+            $this->params=array_slice($urlParts,2);
+
+        }
 
         self::$mainDir=dirname($_SERVER['SCRIPT_FILENAME']);
+    }
+
+    /**
+     * Recuperer les parametres dans l'url.
+     * @return array
+     */
+    public function getParams()
+    {
+        return $this->params;
     }
 
     public function getHost()

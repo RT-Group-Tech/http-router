@@ -12,6 +12,7 @@ class HttpRouter
     {
 
         $this->httpRequest=new HttpRequest();
+
     }
 
     /**
@@ -25,7 +26,7 @@ class HttpRouter
         if(in_array($this->httpRequest->getUrl(),$urls))
         {
             $this->urlFound=true;
-            $controller->captured($this->httpRequest->getUrl(),$this->httpRequest);
+            $controller->captured(url: $this->httpRequest->getUrl(),httpRequest: $this->httpRequest,params: $this->httpRequest->getParams());
         }
         return $this;
     }
