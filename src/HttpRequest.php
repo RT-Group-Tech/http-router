@@ -125,10 +125,10 @@ class HttpRequest
         return $this->url;
     }
 
-    public function isPost()
+    public static function isPost()
     {
-        //$obj=self::getCachedObject();
-        if($this->method=="POST")
+        $obj=self::getCachedObject();
+        if($obj->method=="POST")
         {
             return true;
         }
@@ -137,10 +137,10 @@ class HttpRequest
 
     }
 
-    public function isGet()
+    public static function isGet()
     {
-        //$obj=self::getCachedObject();
-        if($this->method=="GET")
+        $obj=self::getCachedObject();
+        if($obj->method=="GET")
         {
             return true;
         }
