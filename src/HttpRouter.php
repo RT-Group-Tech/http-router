@@ -26,6 +26,7 @@ class HttpRouter
         if(in_array($this->httpRequest->getUrl(),$urls))
         {
             $this->urlFound=true;
+            $controller->beforeEnter(url: $this->httpRequest->getUrl(),httpRequest: $this->httpRequest,params: $this->httpRequest->getParams());
             $controller->captured(url: $this->httpRequest->getUrl(),httpRequest: $this->httpRequest,params: $this->httpRequest->getParams());
         }
         return $this;
