@@ -6,14 +6,6 @@ abstract class Controller
 {
     use DataLoader;
 
-    /**
-     * Lorsque le URl listened est capturé.
-     * @param $url
-     * @param HttpRequest $httpRequest
-     * @param array|null $params
-     * @return mixed
-     */
-    public abstract function captured($url, HttpRequest $httpRequest, array $params=null);
 
     /**
      * Avant d'entrer dans le route.
@@ -23,5 +15,14 @@ abstract class Controller
      * @return mixed
      */
     public abstract function beforeEnter($url, HttpRequest $httpRequest, array $params=null);
+
+    /**
+     * Lorsque le URl listened est capturé.
+     * @param $url
+     * @param HttpRequest $httpRequest
+     * @param array|null $params
+     * @return mixed
+     */
+    public abstract function captured($url, HttpRequest $httpRequest, array $params=null);
 
 }
