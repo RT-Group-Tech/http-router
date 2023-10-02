@@ -234,7 +234,10 @@ class HttpRequest
         $dataFile=self::$mainDir.DIRECTORY_SEPARATOR.self::$storeFilename;
         if(!file_exists($dataFile))
         {
-            return null;
+            /**
+             * Return a fresh new object.
+             */
+            return new HttpRequest();
         }
         $content=file_get_contents($dataFile);
 
