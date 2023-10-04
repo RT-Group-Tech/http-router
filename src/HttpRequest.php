@@ -267,13 +267,22 @@ class HttpRequest
      * Method pour éxécuter une requete POST http.
      * @param $url => url de la requete.
      * @param $data => POST data.
-     * @return false|string|null
+     * @return array
      */
-    public function executeRequest($url,$data)
+    public static function executeRequest($url,$data,array $headers)
     {
 
         $curl=new \Curl\Curl();
-        $curl->setHeader("Content-Type","application/json");
+        $keys=array_keys($headers);
+        if(!in_array("Content-Type",$keys))
+        {
+            $curl->setHeader("Content-Type","application/json");
+        }
+
+        foreach($headers as $key=>$val)
+        {
+            $curl->setHeader($key,$val);
+        }
 
         $curl->setOpt(CURLOPT_SSL_VERIFYPEER, 0);
         $curl->setOpt(CURLOPT_SSL_VERIFYHOST, 0);
@@ -289,9 +298,11 @@ class HttpRequest
         }
         else
         {
-            $obj=$curl->response;
+            $reponseHeaders=$curl->getResponseHeaders();
+            $responseData=$curl->getResponse();
 
-            return $obj;
+            $response=array("headers"=>$reponseHeaders,"data"=>$responseData);
+            return $response;
         }
 
     }
