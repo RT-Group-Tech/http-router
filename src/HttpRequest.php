@@ -73,7 +73,6 @@ class HttpRequest
         {
             $this->url=substr(string: $this->url,offset: 1);
         }
-
         if($this->host=="127.0.0.1" || $this->host=="localhost")
         {
             /**
@@ -84,7 +83,7 @@ class HttpRequest
             $cleanedUrl="";
             for($i=0; $i<count($u); $i++)
             {
-                if($i<2)
+                if($i<1)
                 {
                     continue;
                 }
