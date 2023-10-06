@@ -69,6 +69,11 @@ class HttpRequest
     {
         $this->url=$_SERVER['REQUEST_URI'];
 
+        if(str_starts_with(haystack: $this->url,needle: "/"))
+        {
+            $this->url=substr(string: $this->url,offset: 1);
+        }
+
         if($this->host=="127.0.0.1" || $this->host=="localhost")
         {
             /**
