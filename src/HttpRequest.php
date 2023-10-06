@@ -154,9 +154,14 @@ class HttpRequest
         return $this->method;
     }
 
-    public function getUrl()
+    public function getUrl(bool $includeHost=false)
     {
-        return $this->url;
+        $url=$this->url;
+        if($includeHost)
+        {
+            $url=$this->host."/".$this->url;
+        }
+        return $url;
     }
 
     public static function isPost()
