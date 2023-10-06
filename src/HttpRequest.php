@@ -76,6 +76,10 @@ class HttpRequest
         if($this->host=="127.0.0.1" || $this->host=="localhost")
         {
             /**
+             * On local host.
+             */
+
+            /**
              * Remove host from url.
              */
             $u=explode("/",$this->url);
