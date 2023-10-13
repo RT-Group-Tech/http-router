@@ -54,7 +54,10 @@ class HttpRequest
     private function handleJsonInput()
     {
         $data=json_decode(file_get_contents("php://input"));
-
+        if(is_null($data))
+        {
+            return;
+        }
         /**
          * Convert to array and store it in $_POST.
          */
