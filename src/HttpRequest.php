@@ -47,6 +47,10 @@ class HttpRequest
         $this->cacheObject();
     }
 
+    /**
+     * Gerer les données json envoyées via POST.
+     * @return void
+     */
     private function handleJsonInput()
     {
         $data=json_decode(file_get_contents("php://input"));
