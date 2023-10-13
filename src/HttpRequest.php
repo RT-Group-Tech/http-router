@@ -32,8 +32,10 @@ class HttpRequest
         $this->setUrl();
 
         /**
-         * Http data cleaning.
+         * Http data handling & cleaning.
          */
+
+        $this->handleJsonInput();
         $_POST=HttpCleaner::clean($_POST);
         $_GET=HttpCleaner::clean($_GET);
         $this->requestData=array_merge($_GET,$_POST);
@@ -43,6 +45,23 @@ class HttpRequest
          * Cache HttpRequest object in file.
          */
         $this->cacheObject();
+    }
+
+    private function handleJsonInput()
+    {
+        $data=json_decode(file_get_contents("php://input"));
+
+        /**
+         * Convert to array and store it in $_POST.
+         */
+        $properties=get_object_vars($data);
+
+        $dataArray=[];
+        foreach($properties as $key=>$val)
+        {
+            $dataArray[$key]=$data->$key;
+        }
+        $_POST=array_merge($_POST,$dataArray);
     }
 
     private function setHost()

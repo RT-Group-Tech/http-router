@@ -14,10 +14,10 @@
 
 
     $router=new HttpRouter();
-    require_once("./ExampleController.php");
+    //require_once("./ExampleController.php");
 
-    $router->listening(array(
+    /**$router->listening(array(
         "connexion/login"
-    ),new ExampleController());
+    ),new ExampleController());*/
 
 ?>

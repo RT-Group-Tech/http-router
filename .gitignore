@@ -19,7 +19,7 @@ bin-release/
 
 /vendor/
 .idea
-index.php
+test.php
 http-request-store.txt
 ExampleController.php
 .htaccess
